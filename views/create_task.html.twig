@@ -12,7 +12,9 @@
         <div class='col-md-4'>
           <h1>You created a task!</h1>
           <p>{{ newtask.getTask }}</p>
-          <p><a href='/'>View your list of things to do.</a></p>
+          <form action='/'>
+            <button type='submit' class='btn btn-sm btn-primary'>Now let's see all your tasks</button>
+          </form>
         </div>
       </div>
     </div>
