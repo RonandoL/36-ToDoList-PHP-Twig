@@ -1,5 +1,5 @@
 <?php
-    class Tasks
+    class Task
     {
         private $description;
 
@@ -36,5 +36,9 @@
             $_SESSION['array_of_tasks'] = array();
         }
 
+
     }
+
+
+
 ?>

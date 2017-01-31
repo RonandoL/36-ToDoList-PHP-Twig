@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Tasks: To Do List</title>
+    <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'> -->
+  </head>
+
+  <body>
+    <div class='container'>
+      <h1>Tasks: To Do List</h1>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h1>To Do List</h1>
+      <!-- To check if a variable is or is not empty we literally write if my_variable is not empty. -->
+      <!-- No need for $ on the variable, no parenthesis on empty -->
+      <!-- We just have to enclose logical statements like if in {% %} so Twig knows it isn't HTML -->
+
+          {% if tasks is not empty %}
+              <p>Here are all your tasks:</p>
+              <ul>
+                  {% for task in tasks %}
+                      <li>{{ task.getDescription }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+
+      <!-- The last line {% endif %} marks the end of the if statement -->
+      <!-- Everything that isn't enclosed in {% %} special characters is treated as HTML -->
+      <!-- Each loop iteration, we use special characters {{ }} to print the task's description inside <li> tags. The {{ }} characters are used to print contents of a variable (or the result of a method call) to the browser -->
+      <!-- when in Twig we call a method by using . instead of the object operator ->. We also don't need to add parentheses at the end of a method call. -->
+
+          <form action='/tasks' method='post'>
+            <div class='form-group'>
+              <label for='task'>Enter task you need done</label>
+              <input type='text' name='task' id='task' class='form-control' placeholder='Personal Slave'>
+            </div>
+            <button type='submit' class='btn btn-lg btn-info'>Submit Task</button>
+          </form>
+
+          <form action='/' method='post'>
+            <button type='submit' class='btn'>Delete All Tasks</button>
+          </form>
+
+        </div> <!-- .col-md-4 -->
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+
+
+  </body>
+
+</html>
